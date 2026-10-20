@@ -1,0 +1,84 @@
+
+=== 01  INGEST & PROTECT ===
+$ python run_demo.py
+LEDGERLY | SME FINANCE COPILOT
+Mode: offline / synthetic / sandbox only
+Records loaded: 2,352 | Rejected: 0
+Instruction-like memos neutralized: 1
+Data window: 2025-09-29 to 2026-09-26
+Planner: deterministic rules; no live LLM calls
+External bank calls: 0 | Real money moved: NGN 0
+
+=== 02  EXPLAIN THE RISK ===
+$ agent.run(goal) -> forecast + passport
+Cash-flow passport: 83.2/100 | Grade A
+Forecast: 13 weeks | Base / sales -20% / sales +10%
+Downside minimum cash: NGN 357,653
+Minimum week: 2026-11-30
+Two-week safety buffer: NGN 1,230,892
+Buffer gap: NGN 873,239 -> request NGN 880,000
+Weekly repayment capacity: NGN 76,739
+A buffer shortfall, not a forecast of insolvency.
+
+=== 03  COMPARE RESPONSIBLY ===
+$ financing.match(...) -> recommended_offer
+PRODUCT                   WEEKLY    FULL GAP   AFFORDABLE
+MFB-GRP                   42,477    yes        yes
+MM-OD                     40,356    no         yes
+SUP-NET30                309,517    yes        no
+FIN-CF                    80,892    yes        no
+
+Recommended: Microfinance group loan
+NGN 880,000 / 24 weeks | Total cost NGN 139,446
+Simple annualized cost: 34.3% (NOT APR or IRR)
+Catalogue is illustrative. No real lender quotes.
+
+=== 04  FIRST APPROVAL GATE ===
+$ agent.run(goal) -> pending submit
+Status: pending_approval | Pending tool: submit
+Lender pack: business summary + factors + forecast + offer
+Excluded: raw transactions, customer identities, account numbers
+Sandbox applications: 0 | Disbursements: 0
+Sandbox balance: NGN 650,000
+Waiting for explicit application approval.
+
+=== 05  APPLICATION IS NOT DISBURSEMENT ===
+$ owner approves submit only; agent.run(goal)
+Application: APPROVED (simulated lender)
+Status: pending_approval | Pending tool: disburse
+Sandbox balance: NGN 650,000 (unchanged)
+Disbursements: 0
+A separate owner decision is required to disburse.
+
+=== 06  APPROVE ONCE, EXECUTE ONCE ===
+$ owner approves disburse; run, then repeat
+Disbursement: DISBURSED | Sandbox only
+Sandbox balance: NGN 1,530,000
+Repeated run balance: NGN 1,530,000
+Total application operations: 1
+Total disbursement operations: 1
+Replay flagged: True
+Idempotency is in-process; restart-safe money state is not implemented.
+
+=== 07  THE SAFE ANSWER CAN BE NO ===
+$ stress fixture: expenses x 1.6; requested NGN 880,000
+Weekly repayment capacity: NGN 0
+Recommended offer: None
+Application: SKIPPED
+Disbursement: SKIPPED
+Sandbox balance: NGN 650,000 (unchanged)
+No affordable full-gap offer. Application and disbursement refused.
+Even an approving callback cannot override this affordability gate.
+
+=== 08  VERIFY THE EVIDENCE ===
+$ AuditLog(path).verify(); tamper-copy.verify()
+Persisted audit reload: True
+Audit entries: 47
+Tampered copy verifies: False
+Local hash chain, not immutable or externally anchored.
+Full suite: 64 passing tests (24 original + 40 regressions).
+Production gaps: authenticated approvals, calibrated risk,
+live lender APIs, durable transactions, external audit anchoring.
+Run locally: python demo_server.py (optional visual wrapper)
+
+Evidence: /workspace/shared/ledgerly_final_release/ledgerly/evidence/run_20261019T101432625402

@@ -1,0 +1,6 @@
+__pycache__/
+*.py[cod]
+.venv/
+demo/frames/
+demo/frames.txt
+verification/server.pid

@@ -1,0 +1,2 @@
+PASS: HTTP GET page, analyze, application-only approval, separate disbursement approval, idempotent replay, stress refusal.
+Browser rendering/click QA not run: Chromium process blocked by execution sandbox. API workflow tested directly over HTTP.

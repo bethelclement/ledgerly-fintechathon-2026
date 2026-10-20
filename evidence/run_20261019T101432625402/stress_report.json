@@ -1,0 +1,241 @@
+{
+  "goal": "Review financing, apply for the best option, then disburse in the sandbox.",
+  "plan": [
+    "forecast",
+    "passport",
+    "alerts",
+    "match",
+    "pack",
+    "notify",
+    "submit",
+    "disburse"
+  ],
+  "status": "complete",
+  "pending": null,
+  "passport": {
+    "score": 43.2,
+    "grade": "D",
+    "factors": [
+      {
+        "key": "history",
+        "label": "Records history",
+        "weight": 10,
+        "score01": 1.0,
+        "points": 10.0,
+        "explanation": "12 complete months of records."
+      },
+      {
+        "key": "stability",
+        "label": "Revenue stability",
+        "weight": 20,
+        "score01": 0.606,
+        "points": 12.1,
+        "explanation": "Monthly revenue varies by 24% (lower is steadier)."
+      },
+      {
+        "key": "margin",
+        "label": "Operating margin",
+        "weight": 20,
+        "score01": 0.0,
+        "points": 0.0,
+        "explanation": "Operating margin is -22% before loan repayments and owner draws."
+      },
+      {
+        "key": "growth",
+        "label": "Sales trend",
+        "weight": 10,
+        "score01": 0.281,
+        "points": 2.8,
+        "explanation": "Last 3 months vs previous 3: -9%."
+      },
+      {
+        "key": "concentration",
+        "label": "Customer spread",
+        "weight": 10,
+        "score01": 1.0,
+        "points": 10.0,
+        "explanation": "Largest named customer is 2% of named sales."
+      },
+      {
+        "key": "coverage",
+        "label": "Debt-service coverage",
+        "weight": 20,
+        "score01": 0.0,
+        "points": 0.0,
+        "explanation": "Operating cash covers repayments -13.5x."
+      },
+      {
+        "key": "discipline",
+        "label": "Repayment discipline",
+        "weight": 10,
+        "score01": 0.833,
+        "points": 8.3,
+        "explanation": "Repayments recorded in 10 of 12 months since the first one."
+      }
+    ],
+    "improve": [
+      "Review supplier prices and low-margin lines to widen your operating margin.",
+      "Keep operating cash well above loan repayments before taking new debt."
+    ],
+    "weekly_repayment_capacity": 0.0,
+    "metrics": {
+      "months": 12,
+      "avg_monthly_revenue": 2828983.3333333335,
+      "revenue_cv": 0.2363381189864535,
+      "op_margin": -0.2228421282086026,
+      "avg_monthly_op_cash": -630416.6666666666,
+      "weekly_repayment_capacity": 0.0,
+      "top_customer_share": 0.024398713572598308,
+      "cash_share": 0.260844590812954
+    }
+  },
+  "alerts": [
+    {
+      "severity": "high",
+      "msg": "Cash goes negative in the week of 2026-10-05 even in the base case."
+    },
+    {
+      "severity": "high",
+      "msg": "If sales are 20% weaker, cash could fall to \u20a6-3,732,173 in the week of 2026-12-14, below your two-week buffer of \u20a61,969,428."
+    }
+  ],
+  "match": {
+    "need": 880000,
+    "offers": [
+      {
+        "product_id": "MFB-GRP",
+        "name": "Microfinance group loan",
+        "amount": 880000,
+        "term_weeks": 24,
+        "total_cost": 139446,
+        "annualized_cost_rate": 0.343,
+        "cost_method": "simple annualized total cost; not amortizing APR or IRR",
+        "weekly_payment": 42477,
+        "affordable": false,
+        "days_to_fund": 7,
+        "collateral_required": false,
+        "covers_need": true,
+        "why": "Weekly payment exceeds your repayment capacity"
+      },
+      {
+        "product_id": "MM-OD",
+        "name": "Mobile-money overdraft",
+        "amount": 150000,
+        "term_weeks": 4,
+        "total_cost": 11423,
+        "annualized_cost_rate": 0.99,
+        "cost_method": "simple annualized total cost; not amortizing APR or IRR",
+        "weekly_payment": 40356,
+        "affordable": false,
+        "days_to_fund": 0,
+        "collateral_required": false,
+        "covers_need": false,
+        "why": "Weekly payment exceeds your repayment capacity"
+      }
+    ],
+    "recommended_offer": null,
+    "note": "No affordable offer covers the full gap. No application or disbursement will be attempted; reduce the request or improve cash flow."
+  },
+  "pack": {
+    "business": {
+      "name": "Mama Ngozi Fabrics (synthetic)",
+      "sector": "fabric retail",
+      "city": "Lagos"
+    },
+    "passport": {
+      "score": 43.2,
+      "grade": "D",
+      "factors": [
+        {
+          "label": "Records history",
+          "points": 10.0,
+          "explanation": "12 complete months of records."
+        },
+        {
+          "label": "Revenue stability",
+          "points": 12.1,
+          "explanation": "Monthly revenue varies by 24% (lower is steadier)."
+        },
+        {
+          "label": "Operating margin",
+          "points": 0.0,
+          "explanation": "Operating margin is -22% before loan repayments and owner draws."
+        },
+        {
+          "label": "Sales trend",
+          "points": 2.8,
+          "explanation": "Last 3 months vs previous 3: -9%."
+        },
+        {
+          "label": "Customer spread",
+          "points": 10.0,
+          "explanation": "Largest named customer is 2% of named sales."
+        },
+        {
+          "label": "Debt-service coverage",
+          "points": 0.0,
+          "explanation": "Operating cash covers repayments -13.5x."
+        },
+        {
+          "label": "Repayment discipline",
+          "points": 8.3,
+          "explanation": "Repayments recorded in 10 of 12 months since the first one."
+        }
+      ]
+    },
+    "forecast": {
+      "min_balance": -3732173,
+      "min_week": "2026-12-14",
+      "first_negative_week": "2026-10-05",
+      "safety_buffer": 1969428,
+      "need": 5701601,
+      "end_balance": -3689373,
+      "opening_balance": 650000
+    },
+    "request": null,
+    "excluded_from_pack": [
+      "raw transactions",
+      "customer identities",
+      "phone and account numbers"
+    ]
+  },
+  "submit": {
+    "status": "SKIPPED",
+    "reason": "No affordable offer covers the full gap. No application or disbursement will be attempted; reduce the request or improve cash flow."
+  },
+  "disburse": {
+    "status": "SKIPPED",
+    "reason": "no approved sandbox application"
+  },
+  "audit_chain_valid": true,
+  "forecast": {
+    "base": {
+      "min_balance": -1919616.666666667,
+      "min_week": "2026-11-30",
+      "first_negative_week": "2026-10-05",
+      "safety_buffer": 1969427.6923076923,
+      "need": 3889044.358974359,
+      "end_balance": -1573896.666666667,
+      "opening_balance": 650000
+    },
+    "downside": {
+      "min_balance": -3732173.333333333,
+      "min_week": "2026-12-14",
+      "first_negative_week": "2026-10-05",
+      "safety_buffer": 1969427.6923076923,
+      "need": 5701601.025641025,
+      "end_balance": -3689373.333333333,
+      "opening_balance": 650000
+    },
+    "upside": {
+      "min_balance": -1168951.666666666,
+      "min_week": "2026-11-30",
+      "first_negative_week": "2026-10-19",
+      "safety_buffer": 1969427.6923076923,
+      "need": 3138379.358974358,
+      "end_balance": -516158.33333333256,
+      "opening_balance": 650000
+    }
+  },
+  "summary": "Your cash-flow credit passport: 43.2/100 (grade D). Biggest levers: Review supplier prices and low-margin lines to widen your operating margin. Keep operating cash well above loan repayments before taking new debt.\n[HIGH] Cash goes negative in the week of 2026-10-05 even in the base case.\n[HIGH] If sales are 20% weaker, cash could fall to \u20a6-3,732,173 in the week of 2026-12-14, below your two-week buffer of \u20a61,969,428.\nNo affordable offer covers the full gap. No application or disbursement will be attempted; reduce the request or improve cash flow.\nSandbox result: {'status': 'SKIPPED', 'reason': 'No affordable offer covers the full gap. No application or disbursement will be attempted; reduce the request or improve cash flow.'}\nSandbox disbursement: {'status': 'SKIPPED', 'reason': 'no approved sandbox application'}"
+}
